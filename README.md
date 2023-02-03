@@ -18,4 +18,4 @@ Third segment : default color showing on color Wheel
 ---
 | ColorWheel screenShot| ColorWheel GIF | 
 |:-:|:-:|
-| ![Screenshot showing list search](https://user-images.githubusercontent.com/27636661/210199764-89ffda29-f2e4-4cc2-bb4e-654df492957e.png) | ![Screenshot showing showing list search 2](https://user-images.githubusercontent.com/27636661/210199800-8a1fda6d-a88b-474c-aee1-16c502f7cb54.png) |  
+| ![ColorWheel screenShot](https://github.com/Ekta-jain/ColorWheelPicker/blob/main/media/color_wheel_screenshot_1.png) | ![ColorWheel GIF](https://github.com/Ekta-jain/ColorWheelPicker/blob/main/media/color_wheel.gif) |  
