@@ -20,8 +20,8 @@ class PreviewFragment : Fragment(R.layout.fragment_preview) {
         setupDataBinding(view)
 
         previewViewModel.indicatorColor.observe(viewLifecycleOwner, Observer {
-            Log.i("indicator","="+it)
-          //  FragmentPreviewBinding.bind(view).colorWheel.setRgb()
+            //TODO: we can get indicator color like this using MVVM and show on colorWheel
+            /* but Right now as we can get color on colorChangeListener  */
         })
 
     }
@@ -29,19 +29,14 @@ class PreviewFragment : Fragment(R.layout.fragment_preview) {
     private fun setupDataBinding(view: View) {
         FragmentPreviewBinding.bind(view).let {
             it.colorIndicator.setBackgroundResource(R.drawable.color_indicator)
-            it.viewModel = getViewModel()
-
-            it.segmentOne.setOnClickListener { item ->
-                //rgb(0, 194, 163)
-                //rgb(75, 165, 79)
-                //rgb(255, 97, 0)
-                //00c2a3
+            it.colorWheel.colorChangeListener = { rgb: Int ->
+                it.segmentOne.setBackgroundColor(rgb)
+               /**  Color wheel color showing on first segment **/
+            }
+            it.segmentTwo.setOnClickListener { item ->
+                /* default color set up on color wheel*/
                 it.colorWheel.setHexCode(getString(R.color.segment_one))
             }
-            it.segmentTwo.setOnClickListener { item->
-                it.colorWheel.setHexCode(getString(R.color.segment_two))
-            }
-
             it.segmentThree.setOnClickListener { item->
                 it.colorWheel.setHexCode(getString(R.color.segment_three))
             }
