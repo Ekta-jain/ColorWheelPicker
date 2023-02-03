@@ -1,8 +1,8 @@
 # ColorWheelPicker
 Pick the segment color and show onto colorPicker and vice versa.
-I am showing colorWheel selected color on first segment.
-Second segment : default color showing on color Wheel
-Third segment : default color showing on color Wheel
+- Showing colorWheel selected color on first segment.
+- Second segment : default color showing on color Wheel
+- Third segment : default color showing on color Wheel
 
 
 ## 📃 TechStack used
