@@ -15,7 +15,7 @@ Third segment : default color showing on color Wheel
 
 
 ### Output Screenshots and Videos
----
-| ColorWheel screenShot| ColorWheel GIF | 
-|:-:|:-:|
-| ![ColorWheel screenShot](https://github.com/Ekta-jain/ColorWheelPicker/blob/main/media/color_wheel_screenshot_1.png) | ![ColorWheel GIF](https://github.com/Ekta-jain/ColorWheelPicker/blob/main/media/color_wheel.gif) |  
+---  
+ 
+ 
+ <img alt="ColorWheel GIF" src="https://github.com/Ekta-jain/ColorWheelPicker/blob/main/media/color_wheel.gif" width="30%" /> 
