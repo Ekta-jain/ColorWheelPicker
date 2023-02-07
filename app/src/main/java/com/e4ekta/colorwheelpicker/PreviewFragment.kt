@@ -1,23 +1,13 @@
 package com.e4ekta.colorwheelpicker
 
 
-import android.R.attr.button
-import android.R.attr.radioButtonStyle
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.GradientDrawable
-import android.graphics.drawable.ShapeDrawable
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.blue
-import androidx.core.graphics.drawable.DrawableCompat
-import androidx.core.graphics.green
-import androidx.core.graphics.red
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -64,11 +54,10 @@ class PreviewFragment : Fragment(R.layout.fragment_preview) {
                     }
                 }
             }
-
+            /* TODO : setting current item color to ColorWheel, getting colorStateList that not working with colorPicker*/
             it.segmentOne.setOnClickListener { item ->
                 previewViewModel.selectedSegment.postValue(1)
                 val buttonColor = item.background as GradientDrawable
-                /* TODO : setting current item color to ColorWheel*/
                 Log.i("SegmentOne","="+buttonColor.color.hashCode())
                // it.colorWheel.setColor(buttonColor.color.hashCode())
             }
