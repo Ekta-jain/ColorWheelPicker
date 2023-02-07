@@ -39,7 +39,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/segmentOne"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
@@ -51,26 +51,24 @@
             app:layout_constraintStart_toStartOf="@id/colorIndicator"
             app:layout_constraintTop_toTopOf="@id/colorIndicator" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/segmentTwo"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
             android:layout_margin="@dimen/_10sdp"
             app:layout_constraintEnd_toStartOf="@id/segmentThree"
-            android:backgroundTint="@color/segment_one"
             app:layout_constraintBottom_toBottomOf="@id/colorIndicator"
             android:background="@drawable/solid_circle_drawable"
             app:layout_constraintStart_toEndOf="@id/segmentOne"
             app:layout_constraintTop_toTopOf="@id/colorIndicator" />
 
 
-        <androidx.appcompat.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/segmentThree"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
             android:layout_margin="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="@id/colorIndicator"
-            android:backgroundTint="@color/segment_three"
             app:layout_constraintEnd_toEndOf="parent"
             android:background="@drawable/solid_circle_drawable"
             app:layout_constraintStart_toEndOf="@id/segmentTwo"

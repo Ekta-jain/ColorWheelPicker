@@ -135,6 +135,9 @@ open class ColorWheel @JvmOverloads constructor(
     fun setRgb(r: Int, g: Int, b: Int) {
         rgb = Color.rgb(r, g, b)
     }
+    fun setColor(r: Int) {
+        rgb =r
+    }
 
     fun setHexCode(colorString:String) {
         rgb = Color.parseColor(colorString)

@@ -1,9 +1,23 @@
 package com.e4ekta.colorwheelpicker
 
+
+import android.R.attr.button
+import android.R.attr.radioButtonStyle
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.ShapeDrawable
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.AppCompatButton
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.blue
+import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.graphics.green
+import androidx.core.graphics.red
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -11,34 +25,62 @@ import com.e4ekta.colorwheelpicker.databinding.FragmentPreviewBinding
 
 
 class PreviewFragment : Fragment(R.layout.fragment_preview) {
-    val previewViewModel : PreviewViewModel by lazy {
+    val previewViewModel: PreviewViewModel by lazy {
         ViewModelProvider(this)[PreviewViewModel::class.java]
     }
+    lateinit var selectedSegment: AppCompatButton
+    var selectedSegmentNumber = 0
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupDataBinding(view)
 
-        previewViewModel.indicatorColor.observe(viewLifecycleOwner, Observer {
-            //TODO: we can get indicator color like this using MVVM and show on colorWheel
-            /* but Right now as we can get color on colorChangeListener  */
+        previewViewModel.selectedSegment.observe(viewLifecycleOwner, Observer {
+            selectedSegmentNumber = it
         })
 
     }
 
+
+    @RequiresApi(Build.VERSION_CODES.N)
     private fun setupDataBinding(view: View) {
         FragmentPreviewBinding.bind(view).let {
             it.colorIndicator.setBackgroundResource(R.drawable.color_indicator)
             it.colorWheel.colorChangeListener = { rgb: Int ->
-                it.segmentOne.setBackgroundColor(rgb)
-               /**  Color wheel color showing on first segment **/
+
+                when (selectedSegmentNumber) {
+                    1 -> {
+                        val shapeDrawable = it.segmentOne.background as GradientDrawable
+                        shapeDrawable.setColor(rgb)
+                    }
+                    2 -> {
+                        val shapeDrawable = it.segmentTwo.background as GradientDrawable
+                        shapeDrawable.setColor(rgb)
+                    }
+                    3 -> {
+                        val shapeDrawable = it.segmentThree.background as GradientDrawable
+                        shapeDrawable.setColor(rgb)
+                    }
+                }
+            }
+
+            it.segmentOne.setOnClickListener { item ->
+                previewViewModel.selectedSegment.postValue(1)
+                val buttonColor = item.background as GradientDrawable
+                /* TODO : setting current item color to ColorWheel*/
+                Log.i("SegmentOne","="+buttonColor.color.hashCode())
+               // it.colorWheel.setColor(buttonColor.color.hashCode())
             }
             it.segmentTwo.setOnClickListener { item ->
-                /* default color set up on color wheel*/
-                it.colorWheel.setHexCode(getString(R.color.segment_one))
+                previewViewModel.selectedSegment.postValue(2)
+                val buttonColor = item.background as GradientDrawable
+                //it.colorWheel.setColor(buttonColor.color.hashCode())
             }
-            it.segmentThree.setOnClickListener { item->
-                it.colorWheel.setHexCode(getString(R.color.segment_three))
+            it.segmentThree.setOnClickListener { item ->
+                previewViewModel.selectedSegment.postValue(3)
+                val buttonColor = item.background as GradientDrawable
+              //  it.colorWheel.setColor(buttonColor.color.hashCode())
             }
 
         }

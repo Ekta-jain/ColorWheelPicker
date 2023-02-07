@@ -10,6 +10,7 @@ import com.e4ekta.colorwheelpicker.utils.setColorAlpha
 class PreviewViewModel : ViewModel() {
 
     val indicatorColor = MutableLiveData<Int>()
+    val selectedSegment = MutableLiveData<Int>()
 
     fun onColorChanged(valueGradient: Int, alphaGradientColor: Int) {
         indicatorColor.postValue(setColorAlpha(valueGradient, alphaGradientColor))
